@@ -68,3 +68,23 @@ git commit -m 'remove PEOPLE.md'
 delete mode 100644 PEOPLE.md
 # Теперь этот файл пропал из рабочей директории
 
+
+//у Git есть команда git rm, которая объединяет в себе удаление и подготовку к коммиту:
+//git rm PEOPLE.md
+# Равносильно rm + git add
+
+git diff
+
+Посмотреть изменения в файлах 
+
+git diff --staged
+
+Вывести все изменения, сделанные в рабочей директории
+которые были добавлены в индекс
+
+git mv OLD-FILENAME NEW-FILENAME
+
+Переименовать файл
+
+
+git mv newhexlet.txt hexlet2.txt 
