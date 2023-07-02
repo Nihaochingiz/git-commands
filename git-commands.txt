@@ -32,3 +32,39 @@ git commit -m 'add README.md'
 git branch -M main
 git push -u origin main
   
+
+
+$ git clone repos/git-user code-user
+# Первый параметр «откуда», второй — «куда» клонировать репозиторий
+
+
+
+## Как запушить два файла в git
+git add file1 file2
+git status
+git config --global user.email "mail@example.com"
+git config --global user.name "name"
+git commit -m 'Изменили два файла'
+git push
+##
+
+
+rm PEOPLE.md
+
+Удаляем файлы
+
+git restore PEOPLE.md
+
+Восстановить файл после удаления
+
+// Как удалить файл из рабочей директории
+rm PEOPLE.md
+# Любое изменение нужно добавлять в индекс
+git add PEOPLE.md
+git commit -m 'remove PEOPLE.md'
+
+[main e15afd2] remove PEOPLE.md
+1 file changed, 1 deletion(-)
+delete mode 100644 PEOPLE.md
+# Теперь этот файл пропал из рабочей директории
+
