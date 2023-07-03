@@ -88,3 +88,8 @@ git mv OLD-FILENAME NEW-FILENAME
 
 
 git mv newhexlet.txt hexlet2.txt 
+
+git log
+
+Показать список всех выполненных коммитов, 
+отсортированных по дате добавления
