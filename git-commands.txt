@@ -153,3 +153,38 @@ git clean -fd
  git restore <file>
 
  Для файлов Измененных в рабочей директории
+
+
+ # Добавляем новый коммит, который мы сразу же удалим
+echo 'test' >> INFO.md
+git add INFO.md
+git commit -m 'update INFO.md'
+
+[main 17a77cb] update INFO.md
+ 1 file changed, 1 insertion(+)
+ # Важно, что мы не делаем git push
+
+git reset --hard HEAD~
+
+HEAD is now at 65a8ef7 Revert "remove PEOPLE.md"
+
+# Если посмотреть `git log`, то последнего коммита там больше нет
+
+
+
+Флаг --hard означает полное удаление
+
+
+commit 50395fd7630ac657b06448f6243cc8cdd1b2b980
+Author: Student <support@hexlet.io>
+Date:   Wed Oct 21 16:30:25 2020 +0700
+
+    add index.html
+
+commit 4dc95e82647039a2a63a9665a1faba93e04b6ed7
+
+
+
+git reset --hard HEAD~2
+
+// Удалить два последний коммита
