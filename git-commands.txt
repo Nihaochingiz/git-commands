@@ -188,3 +188,105 @@ commit 4dc95e82647039a2a63a9665a1faba93e04b6ed7
 git reset --hard HEAD~2
 
 // Удалить два последний коммита
+
+
+Крайне часто разработчики делают коммит и сразу понимают, 
+что забыли добавить часть файлов через git add. 
+Оставшуюся часть изменений можно дослать следующим коммитом
+
+Есть еще один способ. 
+Если изменения еще не были отправлены во внешнюю систему, 
+можно добавить изменения в текущий коммит. 
+Для этого во время коммита добавляется флаг --amend:
+
+echo 'experiment with amend' >> INFO.md
+echo 'experiment with amend' >> README.md
+git add INFO.md
+git commit -m 'add content to INFO.md and README.md'
+git status
+git add README.md
+git commit --amend
+git status
+
+
+
+git commit --amend --no-edit
+Добавить коммит, но описание коммита не изменится
+
+Индекс в Git — это специальная промежуточная область, 
+в которой хранятся изменения файлов на пути от рабочей 
+директории до репозитория. При выполнении коммита в него 
+попадают только те изменения, которые были добавлены в индекс. 
+
+
+git add .
+Добавляет абсолютно все изменения рабочей директории в индекс
+
+
+git commit -am 'do something'
+Добавить все изменения рабочей директории в индекс
+
+
+git add -i
+
+Показать измененные куски файлов, git будет спрашивать 
+что с ними сделать
+
+Добавлять изменения в интерактивном режиме
+
+git add -i
+p
+1
+s
+y
+q
+
+
+git add -i
+p 1 s y n u q
+git commit -m "+2/-0"
+git add -i
+p 1 s y u q
+git commit -m "second part of change"
+
+
+git add -i
+p 1 s y n u q
+git commit -m "first part of change"
+git add -i
+p 1 s y u q
+git commit -m "second part of change
+git commit -m "значение из колонки staged"
+
+
+git add -i
+p
+1
+s
+y
+
+cd code-user
+git add -i
+p 1 s y n u q
+git commit -m "first part of change"
+git add -i
+p 1 s y u q
+git commit -m "second part of change"
+
+
+
+
+# При выполнении задачи состояние репозитория могло измениться.
+# Перед набором команд из списка, обновите упражнение с помощью кнопки Сброс
+
+cd code-user/ # Переходим в директорию code-user
+git add -i
+patch
+1
+# Подтверждаем выбор нажатием Enter
+s
+y
+n
+status
+quit
+git commit -m '+2/-0'	
