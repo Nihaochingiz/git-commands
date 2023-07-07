@@ -401,3 +401,40 @@ git add hexlet.txt
 git commit -m 'update hexlet.txt'
 git add .gitignore
 git commit -m 'add .gitignore'
+
+
+
+
+
+
+
+git stash
+
+# Прячем файлы
+# После этой команды пропадут все измененные файлы
+# независимо от того, добавлены они в индекс или нет
+
+После выполнения всех нужных изменений в чистой рабочей директории 
+можно вернуть спрятанные изменения с помощью команды 
+git stash pop
+
+
+touch todo.md 
+echo "test" >> todo.md
+echo "stash не трогает новые файлы, которые еще не добавлены в индекс." >> hexlet.txt
+git commit -o /usr/src/app/code-user/hexlet.txt -m "the message"
+git stash
+git stash pop 
+git commit -m "add all files"
+
+
+cd code-user/ # Переходим в директорию code-user
+git add . # Так как есть изменения не добавленные в индекс
+git stash
+echo 'Hexlet is awesome!' > todo.md
+echo 'stash не трогает новые файлы, которые еще не добавлены в индекс.' >> hexlet.txt
+git add hexlet.txt
+git commit -m 'refactoring'
+git stash pop
+git add .
+git commit -m 'changes from stash'
